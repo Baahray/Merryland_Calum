@@ -1,5 +1,8 @@
 
-address: 51 Merryland Place, Glasgow G51 2NA, UK
+address_line1: 51 Merryland Place
+address_line2: Glasgow
+address_line3: G51 2NA
+address_line4: UK
 
 checkin: Check-in time is 4pm. We can sometimes arrange an early check-in, so please contact us, if you will arrive early and we'll do our best.
 Please note we sometimes may process a small charge agreed upon for an early

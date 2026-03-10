@@ -1,8 +1,8 @@
-checkin: Check-in time is 4pm. We can sometimes arrange an early check-in, so please contact us, if
-you will arrive early and we'll do our best.
+checkin: Check-in time is 4pm. We can sometimes arrange an early check-in, so please contact us, if you will arrive early and we'll do our best.
 Please note we sometimes may process a small charge agreed upon for an early
 check-in. We suggest you refer to the section on what to do if you arrive early - there is
 plenty to keep you entertained!
+
 keybox: Key box code: 2016 1
 
 parking: Parking is available outside the cottage. We recommend using the driveway at the end of the road. 1

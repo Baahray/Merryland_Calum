@@ -1,0 +1,569 @@
+<style>
+/* ===============================
+   RESET
+   =============================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* ===============================
+   ROOT + GLOBAL
+   =============================== */
+
+:root {
+  --font-heading: "Futura", "Futura PT", "Avenir Next", "Segoe UI", sans-serif;
+  --font-body: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: #f5f5f5;
+  background: #333a35;
+  margin: 0;
+  padding: 0;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* ===============================
+   TYPOGRAPHY
+   =============================== */
+
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1.9rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.55rem;        /* clearer hierarchy */
+  letter-spacing: 0.03em;
+  margin-top: 0;             /* removes extra space above */
+  margin-bottom: 1.1rem;
+  text-align: center;
+  position: relative;
+}
+
+/* etched underline */
+h2::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  margin: 3px auto 0;
+
+  /* dark olive etched line */
+  background: #2f3a2f;
+
+  /* subtle carved effect */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.25),
+    inset 0 -1px 0 rgba(0,0,0,0.35);
+
+  border-radius: 1px;
+}
+
+
+
+/* Tighten H2 spacing inside cards */
+section > h2:first-child {
+  margin-top: 0;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.22rem;
+  letter-spacing: 0.02em;
+  margin-top: 36px;
+  margin-bottom: 0.75rem;
+  color: #f0f2f0;
+}
+
+
+p,
+li,
+details p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+
+figcaption,
+.small-text {
+  font-size: 0.82rem;
+}
+
+strong {
+  font-weight: 500;
+}
+
+/* ===============================
+   GUIDEBOOK BACKGROUND
+   =============================== */
+
+.guidebook {
+  background: #333a35;
+  padding: 2rem 1.5rem 4rem;
+  min-height: 100vh;
+}
+
+/* ===============================
+   SECTIONS / CARDS
+   =============================== */
+
+section {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 24px;
+  background: #4f5952;
+  border-radius: 18px;
+  box-shadow:
+    0 16px 40px rgba(23, 27, 24, 0.45),
+    0 2px 6px rgba(23, 27, 24, 0.35);
+}
+
+#arrival {
+  background: #4f5952;
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   IMAGES (FIXED)
+   =============================== */
+
+/* Prevent giant images */
+section img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 16px auto;
+  border-radius: 12px;
+}
+
+.section-image {
+  max-width: 900px;
+  margin: 16px auto;
+}
+
+.section-image img {
+  border-radius: 10px;
+}
+
+.section-image figcaption {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 6px;
+}
+
+#arrival img {
+  border-radius: 14px;
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.16);
+}
+
+/* ===============================
+   ICONS
+   =============================== */
+
+.icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  opacity: 0.75;
+  overflow: visible;
+}
+
+.icon.icon-center {
+  width: 32px;
+  height: 32px;
+}
+
+/* ===============================
+   WARNING BOX (YELLOW)
+   =============================== */
+
+.warning-box {
+  border-left: 4px solid #f4c430;
+  background: #f1e7cd75;
+  padding: 12px 14px;
+  margin-top: 12px;
+  color: #333333;
+}
+
+.warning-box p,
+.warning-box strong,
+.warning-box .small-text {
+  color: #333333;
+}
+
+.warning-icon {
+  color: #f4c430;
+  margin-bottom: 6px;
+}
+
+/* ===============================
+   BLUE INFO BOX
+   =============================== */
+
+.Blue-box {
+  border-left: 4px solid #2171b7;
+  background: #2f3a4041;
+  padding: 12px 14px;
+  margin-top: 12px;
+}
+
+.Blue-box p {
+  margin: 6px 0;
+}
+
+/* ===============================
+   MENU
+   =============================== */
+
+.menu {
+  max-width: 700px;
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* SHARED BUTTON STYLE — menu + back */
+.menu a,
+.back {
+  display: block;
+  text-align: center;
+  padding: 14px;
+  background: #d1d6d2;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #000;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Optional hover polish */
+.menu a:hover {
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+}
+
+/* ---------- STATIC DEPTH (NO ANIMATION) ---------- */
+.menu a {
+  box-shadow:
+    0 10px 22px rgba(14, 14, 14, 0.601),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* ===============================
+   MENU ANIMATION — CLEAN & PREMIUM
+   =============================== */
+
+/* BASE — REQUIRED */
+.menu a {
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+
+  /* POP STARTS IMMEDIATELY */
+  animation: springPop 8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+
+/* OPTIONAL: subtle top → bottom cascade */
+.menu a:nth-child(1) { animation-delay: 0s; }
+.menu a:nth-child(2) { animation-delay: 0.08s; }
+.menu a:nth-child(3) { animation-delay: 0.16s; }
+.menu a:nth-child(4) { animation-delay: 0.24s; }
+.menu a:nth-child(5) { animation-delay: 0.32s; }
+.menu a:nth-child(6) { animation-delay: 0.40s; }
+.menu a:nth-child(7) { animation-delay: 0.48s; }
+.menu a:nth-child(8) { animation-delay: 0.56s; }
+.menu a:nth-child(9) { animation-delay: 0.64s; }
+
+/* ---------- SPRING POP (IMMEDIATE) ---------- */
+@keyframes springPop {
+  /* START POP */
+  0% {
+    transform: scale(1);
+  }
+
+  6% {
+    transform: scale(1.065);
+  }
+
+  12% {
+    transform: scale(0.985);
+  }
+
+  18% {
+    transform: scale(1.015);
+  }
+
+  /* REST */
+  25%, 100% {
+    transform: scale(1);
+  }
+}
+
+/* ---------- SHEEN LAYER ---------- */
+.menu a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.35) 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.35) 60%,
+    transparent 80%
+  );
+
+  transform: translateX(-140%);
+  opacity: 0;
+  pointer-events: none;
+
+  /* SHEEN — every 3s, starts immediately */
+  animation: sheenWave 3s ease-in-out infinite;
+}
+
+/* ---------- SHEEN KEYFRAMES ---------- */
+@keyframes sheenWave {
+  0% {
+    opacity: 0;
+    transform: translateX(-140%);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  55% {
+    opacity: 1;
+    transform: translateX(140%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(140%);
+  }
+}
+
+
+/* ===============================
+   DETAILS / SUMMARY
+   =============================== */
+
+details {
+  margin-top: 12px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 8px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23222' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+details[open] summary::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23222' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M18 15l-6-6-6 6'/%3E%3C/svg%3E");
+}
+
+/* ===============================
+   LIGHTBOX
+   =============================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.lightbox * {
+  pointer-events: none;
+}
+
+.lightbox-content {
+  pointer-events: auto;
+  max-width: 90vw;
+  max-height: 90vh;
+  text-align: center;
+}
+
+#lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 8px;
+}
+
+#lightbox-caption {
+  color: #fff;
+  margin-top: 12px;
+  font-size: 0.95em;
+}
+
+/* ===============================
+   CAROUSEL FIX
+   =============================== */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Navigation buttons */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #4f5952; /* same tone as back button */
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(23, 27, 24, 0.45);
+}
+
+.carousel-button.prev {
+  left: 12px;
+}
+
+.carousel-button.next {
+  right: 12px;
+}
+
+/* ===============================
+   CAROUSEL (SCROLL / SWIPE)
+   =============================== */
+
+.carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 12px;
+}
+
+.carousel figure {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+  margin: 0;
+}
+
+.carousel img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.carousel figcaption {
+  font-size: 0.85em;
+  margin-top: 6px;
+  color: #ddd;
+}
+
+/* ===============================
+   SOCIAL ICONS (LOCK SIZE)
+   =============================== */
+
+.socials {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+
+.socials img,
+.socials svg {
+  width: 26px;
+  height: 26px;
+  max-width: 26px;
+  max-height: 26px;
+  object-fit: contain;
+  display: block;
+  opacity: 0.85;
+}
+
+.spacer {
+  height: 48px;
+}
+
+
+</style>

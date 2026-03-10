@@ -9,16 +9,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     const lines = text.split("\n");
 
     const data = {};
+    let currentKey = null;
 
     lines.forEach(line => {
 
-      const parts = line.split(":");
-      if (parts.length < 2) return;
+      if (line.includes(":") && !line.startsWith(" ")) {
 
-      const key = parts[0].trim();
-      const value = parts.slice(1).join(":").trim();
+        const parts = line.split(":");
+        currentKey = parts[0].trim();
+        data[currentKey] = parts.slice(1).join(":").trim();
 
-      data[key] = value;
+      } else if (currentKey) {
+
+        data[currentKey] += "<br>" + line.trim();
+
+      }
 
     });
 
